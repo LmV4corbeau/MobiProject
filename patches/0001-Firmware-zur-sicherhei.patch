@@ -1,0 +1,15 @@
+From d1cc18e92b320886c63be08bd563b797491e8569 Mon Sep 17 00:00:00 2001
+Message-Id: <d1cc18e92b320886c63be08bd563b797491e8569.1399529863.git.servant.de.noir@gmail.com>
+From: Tom Schumann <servant.de.noir@gmail.com>
+Date: Tue, 6 May 2014 12:54:54 +0200
+Subject: [PATCH] Firmware zur sicherhei
+
+---
+ firmware/imagefile_4GB.img    | Bin 0 -> 4194304000 bytes
+ firmware/imagefile_4GB.img.gz | Bin 0 -> 154557854 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+diff --git a/firmware/imagefile_4GB.img b/firmware/imagefile_4GB.img
+new file mode 100644
+index 0000000000000000000000000000000000000000..536a710a663184e6a03182f1bed2a4b6019a80dc
+GIT binary patch

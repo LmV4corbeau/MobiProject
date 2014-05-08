@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="ev3tools" basedir="." default="jar">
+    <property file="local.properties" />
+    <property file="build.properties" />
+
+    <path id="libraries.path">    
+        <fileset dir="${lib.dir}">
+            <include name="*.jar"/>
+        </fileset>
+        <fileset dir="${thirdparty.dir}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="clean" description="delete old files">
+        <delete dir="${classes.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="compile" description="build class files" depends="clean">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${source.dir}" destdir="${classes.dir}">
+            <classpath refid="libraries.path"/>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${dist.dir}"/>
+        <jar destfile="${classes.jar}" basedir="${classes.dir}">
+        </jar>  
+    </target>
+    
+    <target name="src.zip" description="generate zip of sources">
+		<zip destfile="${classes.src.zip}">
+			<fileset dir="${source.dir}" />
+		</zip>
+	</target>
+	
+    <target name="pc.files" description="Generate the pc files but do not copy to EV3" depends="jar,src.zip"/>
+</project>
