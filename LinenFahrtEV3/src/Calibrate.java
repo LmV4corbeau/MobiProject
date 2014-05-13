@@ -1,4 +1,6 @@
-package mobiproject;
+package roboter;
+
+
 
 import org.jfree.chart.plot.ThermometerPlot;
 
@@ -18,33 +20,31 @@ public class Calibrate {
 	private EV3TouchSensor  itouchButton = new EV3TouchSensor(itouchButtonPort);
 	private Port ausererLichtSensorPort = LocalEV3.get().getPort("S1");
 	private Port innererLichtSensorPort = LocalEV3.get().getPort("S4");
-	private int cali_value_out;
-	private int cali_value_in;
-	private EV3ColorSensor ausererLichtSensor = new EV3ColorSensor(
+	private EV3ColorSensor outLightSensor = new EV3ColorSensor(
 			ausererLichtSensorPort);
-	private EV3ColorSensor innererLichtSensor = new EV3ColorSensor(
+	private EV3ColorSensor inLightSensor = new EV3ColorSensor(
 			innererLichtSensorPort);
 
 	
-	/**
+	/**     
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		Calibrate cali = new Calibrate();
-		cali.run();
+		
 	}
 
-	public void run() {
+	public void Calibrate(int calout, int calin) {
 		while (!this.isInterrupted()) {
 			LCD.drawString("Test", 0, 0);
-			LCD.drawInt(this.ausererLichtSensor.getColorID(), 0, 1);
-			LCD.drawInt(this.innererLichtSensor.getColorID(), 0, 2);
+			LCD.drawInt(this.outLightSensor.getColorID(), 0, 1);
+			LCD.drawInt(this.inLightSensor.getColorID(), 0, 2);
 			if (Button.ENTER.isDown()) {
 				
-				cali_value_out = this.ausererLichtSensor.getColorID();
-				cali_value_in = this.innererLichtSensor.getColorID();
-				LCD.drawInt(cali_value_out, 0, 3);
-				LCD.drawInt(cali_value_in, 0, 4);
+				calout = this.outLightSensor.getColorID();
+				calin = this.inLightSensor.getColorID();
+				LCD.drawInt(calout, 0, 3);
+				LCD.drawInt(calin, 0, 4);
 				if(Button.ESCAPE.isDown()) {
 					this.end();
 				}
@@ -62,5 +62,13 @@ public class Calibrate {
 
 	public void end() {
 		System.exit(0);
+	}
+	public int getoutlight() {
+
+		return this.outLightSensor.getColorID();
+	}
+	public int getinlight() {
+
+		return this.inLightSensor.getColorID();
 	}
 }
