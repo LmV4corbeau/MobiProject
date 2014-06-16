@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/commons-cli.jar"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/commons-cli-src.zip"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/dbusjava.jar"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/dbusjava-src.zip"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/ev3classes.jar"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/ev3classes-src.zip"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/ev3tools.jar"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/ev3tools-src.zip"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/jcommon.jar"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/jcommon-src.zip"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/jfreechart.jar"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/jfreechart-src.zip"/>
+	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/jsch-0.1.50.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
