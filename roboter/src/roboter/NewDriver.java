@@ -11,16 +11,17 @@ import lejos.robotics.RegulatedMotor;
 
 public class NewDriver {
 	private boolean driveRight = false;
-	
+
 	private Calibrate cali;
-	private RMIRegulatedMotor rightMotor;//= new MindsensorsGlideWheelMRegulatedMotor(
-		//	MotorPort.A);
-	private RMIRegulatedMotor leftMotor; //= new MindsensorsGlideWheelMRegulatedMotor(
-		//	MotorPort.D);
+	private RegulatedMotor rightMotor = new MindsensorsGlideWheelMRegulatedMotor(
+			MotorPort.A);
+	private RegulatedMotor leftMotor = new MindsensorsGlideWheelMRegulatedMotor(
+			MotorPort.D);
 	private int speed;
 	private TrafficSign sign;
 	final int black = 7;
 	final int blue = 2;
+
 	public boolean isDriveRight() {
 		return driveRight;
 	}
@@ -29,16 +30,13 @@ public class NewDriver {
 		this.driveRight = driveRight;
 	}
 
-	public NewDriver(Calibrate calibrate, RMIRegulatedMotor rightMotor, RMIRegulatedMotor leftMotor ) {
-		
-		this.leftMotor=leftMotor;
-		this.rightMotor=rightMotor;
-		this.cali = calibrate;
+	public NewDriver(Calibrate cali) {
+		this.cali = cali;
 		this.speed = 75;
-		if(rightMotor == null){
+		if (rightMotor == null) {
 			LCD.drawString("recht", 0, 5);
 		}
-		if(leftMotor == null){
+		if (leftMotor == null) {
 			LCD.drawString("links", 0, 6);
 		}
 		sign = new TrafficSign(this);
@@ -61,7 +59,7 @@ public class NewDriver {
 	}
 
 	public void forward() throws RemoteException {
-		
+
 		rightMotor.setSpeed(speed);
 		leftMotor.setSpeed(speed);
 		rightMotor.forward();
@@ -69,7 +67,7 @@ public class NewDriver {
 	}
 
 	public void backward() throws RemoteException {
-		
+
 		rightMotor.setSpeed(speed);
 		leftMotor.setSpeed(speed);
 		rightMotor.backward();
@@ -77,21 +75,21 @@ public class NewDriver {
 	}
 
 	public void left() throws RemoteException {
-		
+
 		rightMotor.setSpeed(speed);
 		leftMotor.setSpeed(speed);
 		rightMotor.forward();
 		leftMotor.backward();
-		
+
 	}
 
 	public void right() throws RemoteException {
-		
+
 		rightMotor.setSpeed(speed);
 		leftMotor.setSpeed(speed);
 		rightMotor.backward();
 		leftMotor.forward();
-		
+
 	}
 
 	public void stop() throws RemoteException {
@@ -102,13 +100,14 @@ public class NewDriver {
 		leftMotor.backward();
 		setSpeed(75);
 	}
+
 	public void left(boolean a) throws RemoteException, InterruptedException {
 		rightMotor.setSpeed(speed);
 		leftMotor.setSpeed(speed);
 		rightMotor.forward();
 		leftMotor.backward();
 		Thread.sleep(8000);
-	
+
 	}
 
 	public void waitMotor() throws InterruptedException {
@@ -117,21 +116,18 @@ public class NewDriver {
 	}
 
 	public void drive() throws InterruptedException, RemoteException {
-		
 
 		while (!Button.ESCAPE.isDown()) {
-			
+
 			LCD.drawInt(cali.getoutColor(), 0, 1);
 			LCD.drawInt(cali.getinColor(), 0, 2);
 			forward();
-			
 
 			while (cali.getoutColor() == getBlack()) {
 				right();
-				
+
 				Thread.sleep(200);
-				
-   
+
 			}
 			while (cali.getinColor() == getBlack()) {
 				left();
@@ -141,7 +137,7 @@ public class NewDriver {
 			while (cali.getinColor() == getBlue()) {
 				sign.choiceSign(4);
 			}
-			if(Button.ESCAPE.isDown()){
+			if (Button.ESCAPE.isDown()) {
 				System.exit(0);
 			}
 		}
