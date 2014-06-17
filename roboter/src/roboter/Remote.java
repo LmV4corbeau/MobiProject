@@ -26,10 +26,10 @@ public class Remote {
     private RemoteEV3 EV21;
     private TrafficSign sign;
 
-    public boolean remote() {
+    public boolean remote(String ipAdress) {
         try {
 
-            EV21 = new RemoteEV3("10.0.1.1");
+            EV21 = new RemoteEV3(ipAdress);
             LCD.refresh();
             LCD.drawString("hat geklappt!", 0, 3);
             System.out.println("hat geklappt!");
