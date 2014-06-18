@@ -1,8 +1,9 @@
-package roboter;
+package TrafficSign;
 
 import java.rmi.RemoteException;
+import roboter.NewDriver;
 
-public class SignDeadEnd extends SignForTraffic {
+public class SignRight extends SignForTraffic {
 
 	private NewDriver drive;
 	@Override
@@ -13,11 +14,10 @@ public class SignDeadEnd extends SignForTraffic {
 
 	@Override
 	public void signDrive() throws RemoteException, InterruptedException {
-		drive.setSpeed(75);
-		drive.right();
-		Thread.sleep(2750);
+		drive.forward();
+		Thread.sleep(1000);
 	}
-	public SignDeadEnd(NewDriver drive){
+	public SignRight(NewDriver drive){
 		this.drive=drive;
 	}
 

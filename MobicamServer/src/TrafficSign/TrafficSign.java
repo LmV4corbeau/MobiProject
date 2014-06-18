@@ -1,8 +1,9 @@
-package roboter;
+package TrafficSign;
 
 import java.rmi.RemoteException;
 
 import lejos.remote.ev3.RMIRegulatedMotor;
+import roboter.NewDriver;
 
 public class TrafficSign {
 	

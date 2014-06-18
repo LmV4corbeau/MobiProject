@@ -1,8 +1,9 @@
-package roboter;
+package TrafficSign;
 
 import java.rmi.RemoteException;
+import roboter.NewDriver;
 
-public class SignPlay extends SignForTraffic {
+public class SignOnlyForward extends SignForTraffic {
 
 	private NewDriver drive;
 	@Override
@@ -13,11 +14,12 @@ public class SignPlay extends SignForTraffic {
 
 	@Override
 	public void signDrive() throws RemoteException, InterruptedException {
-		drive.setSpeed(35);
-		Thread.sleep(1000);
-	}
-	public SignPlay(NewDriver drive){
-		this.drive=drive;
+		drive.forward();
+		Thread.sleep(5000);
+
 	}
 
+	public SignOnlyForward(NewDriver drive){
+		this.drive=drive;
+	}
 }

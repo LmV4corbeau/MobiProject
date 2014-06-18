@@ -1,19 +1,19 @@
-package image;
+package mobicamserver;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class CommandRaspberryPi {
+
+    private File pictureFolder;
 
     public void makeAPicture(String name) {
         try {
             String path = System.getProperty("user.dir");
-            File pictureFolder = new File(path, "pictures");
+            this.pictureFolder = new File(path, "pictures");
             if (!pictureFolder.exists()) {
                 System.out.println("Folder don't exists");
                 pictureFolder.mkdir();
@@ -41,7 +41,7 @@ public class CommandRaspberryPi {
             System.out.println(checkUSBConnettion);
             if (checkUSBConnettion.contains("usb0")) {
                 //netwerkverbingung aufbauen
-                String enableNetworking = this.runCommand("sudo ifconfig usb0 10.0.1.10");
+                String enableNetworking = this.runCommand("sudo ifconfig usb0 10.0.1.2");
                 System.out.println(enableNetworking);
                 String checkNetwork = this.runCommand("ping -c4 10.0.1.1 | grep 'packet loss'");
                 System.out.println(checkNetwork);
@@ -102,5 +102,14 @@ public class CommandRaspberryPi {
             System.out.println(ignoreMe.getMessage());
         }
         return output;
+    }
+
+    public File getpictureFolder() {
+        if (this.pictureFolder != null) {
+            if (this.pictureFolder.exists()) {
+                return this.pictureFolder;
+            }
+        }
+        return null;
     }
 }
