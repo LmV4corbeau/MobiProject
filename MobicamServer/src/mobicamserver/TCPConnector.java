@@ -49,6 +49,7 @@ public class TCPConnector extends Thread {
         while (true) {
             if (this.client == null) {
                 this.connect();
+                System.out.println("Connection ready for use.");
             }
             String answer = "";
             while (answer.isEmpty()) {

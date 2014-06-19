@@ -20,7 +20,7 @@ public class CommandRaspberryPi {
             } else {
                 System.out.println("Folder exists");
             }
-            String output = this.runCommand("raspistill -o " + pictureFolder.getAbsolutePath() + "/" + name + ".jpg");
+            String output = this.runCommand("raspistill -o " + pictureFolder.getAbsolutePath() + "/" + name + ".jpg -w 700 -h 700");
 
             System.out.println(output);
         } catch (InterruptedException ex) {
