@@ -59,6 +59,14 @@ public class TCPConnector extends Thread {
                 //TODO Photo machen
                 this.picmd.makeAPicture("image");
                 File picture = new File(this.picmd.getpictureFolder(), "image.jpg");
+                if(!picture.exists()){
+                	this.picmd.makeAPicture("image");
+                	picture = new File(this.picmd.getpictureFolder(), "image.jpg");
+                }
+                if(!picture.exists()){
+                	this.picmd.makeAPicture("image");
+                	picture = new File(this.picmd.getpictureFolder(), "image.jpg");
+                }
                 String Sign = this.signDetector.detektTrafficSigne(picture);
                 if(!this.sendMessage(Sign)){
                     System.out.println("ERROR by sending.....");

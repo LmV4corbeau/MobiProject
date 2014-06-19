@@ -6,13 +6,16 @@
 package mobicamserver;
 
 import TrafficSign.SignController;
+import TrafficSign.SignForTraffic;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
-import org.neuroph.core.NeuralNetwork;
-import org.neuroph.imgrec.ImageRecognitionPlugin;
+import java.util.LinkedList;
+
 import roboter.Calibrate;
 import roboter.NewDriver;
+import TrafficSign.SignController;
+import TrafficSign.SignForTraffic;
 
 /**
  *
@@ -26,4 +29,23 @@ public class SignDetector {
         this.signController = new SignController(new NewDriver(new Calibrate()));
     }
 
+    public String detektTrafficSigne(File picture) {
+    	LinkedList<SignForTraffic> schilderliste = this.signController.getSignList();
+    	HashMap<String, Double> schilderWertPaare = new HashMap<>();
+    	for(SignForTraffic current : schilderliste){
+    		Double currentValue = current.neuralValue(picture);
+    		schilderWertPaare.put(current.getClass().getSimpleName(), currentValue);
+    	}
+    	String detected = null;
+    	double detectedValue = 0.0;
+    	if (schilderWertPaare != null) {
+			for (String currentPicture : schilderWertPaare.keySet()) {
+				if(detectedValue < schilderWertPaare.get(currentPicture)) {
+					detectedValue = schilderWertPaare.get(currentPicture);
+					detected = schilderWertPaare.getClass().getSimpleName();
+				}
+			}
+		}
+        return detected;  
+    }
 }
