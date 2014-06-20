@@ -18,7 +18,7 @@ import java.net.Socket;
  * @author corbeau
  */
 public class TCPConnector extends Thread {
-    
+
     private CommandRaspberryPi picmd;
     private ServerSocket tcpServer;
     private BufferedReader inputStream;
@@ -38,7 +38,7 @@ public class TCPConnector extends Thread {
         }
 
     }
-    
+
     public static void main(String[] args) {
         TCPConnector server = new TCPConnector();
         server.run();
@@ -56,24 +56,37 @@ public class TCPConnector extends Thread {
                 answer = this.getMessage();
             }
             if (answer.contains("takepicture")) {
-                //TODO Photo machen
-                this.picmd.makeAPicture("image");
-                File picture = new File(this.picmd.getpictureFolder(), "image.jpg");
-                if(!picture.exists()){
-                	this.picmd.makeAPicture("image");
-                	picture = new File(this.picmd.getpictureFolder(), "image.jpg");
-                }
-                if(!picture.exists()){
-                	this.picmd.makeAPicture("image");
-                	picture = new File(this.picmd.getpictureFolder(), "image.jpg");
-                }
-                String Sign = this.signDetector.detektTrafficSigne(picture);
-                if(!this.sendMessage(Sign)){
+                String signname = this.handlePictureRequest();
+                if (!this.sendMessage(signname)) {
                     System.out.println("ERROR by sending.....");
                     System.exit(1);
                 }
             }
         }
+    }
+
+    public String handlePictureRequest() {
+        File picture = new File(this.picmd.getpictureFolder(), "image.jpg");
+        for (int i = 0; i <= 5; i++) {
+            if (this.makePicture(picture)) {
+                break;
+            }
+        }
+        String signname = this.signDetector.detektTrafficSigne(picture);
+        System.out.println(signname);
+        if (signname.contentEquals("new picture please")) {
+            return this.handlePictureRequest();
+        }
+        return signname;
+    }
+
+    public boolean makePicture(File picture) {
+        this.picmd.makeAPicture("image");
+
+        if (picture.exists()) {
+            return true;
+        }
+        return false;
     }
 
     public boolean sendMessage(String message) {

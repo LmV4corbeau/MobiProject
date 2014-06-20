@@ -43,7 +43,9 @@ public class SignDetector {
 				if(detectedValue < schilderWertPaare.get(currentPicture)) {
 					detectedValue = schilderWertPaare.get(currentPicture);
 					detected = schilderWertPaare.getClass().getSimpleName();
-				}
+				} else if(detectedValue == schilderWertPaare.get(currentPicture)){
+                                    return"new picture please";
+                                }
 			}
 		}
         return detected;  
