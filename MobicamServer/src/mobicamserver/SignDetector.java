@@ -11,9 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
-
-import roboter.Calibrate;
-import roboter.NewDriver;
 import TrafficSign.SignController;
 import TrafficSign.SignForTraffic;
 
@@ -26,7 +23,7 @@ public class SignDetector {
     private SignController signController;
 
     public SignDetector() {
-        this.signController = new SignController(new NewDriver(new Calibrate()));
+        this.signController = new SignController();
     }
 
     public String detektTrafficSigne(File picture) {

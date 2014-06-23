@@ -41,33 +41,70 @@ public class TCPConnector extends Thread {
 
     public static void main(String[] args) {
         TCPConnector server = new TCPConnector();
-        server.run();
+        //server.start();
+        server.work();
     }
 
     @Override
     public void run() {
         while (true) {
             if (this.client == null) {
-                this.connect();
-                System.out.println("Connection ready for use.");
+                if (this.picmd.connectToEV3()) {
+                    System.out.println("USB-Connection ok");
+                    this.connect();
+                    System.out.println("Connection ready for use.");
+                } else {
+                    System.out.println("USB-Connection fail");
+                    System.exit(1);
+                }
             }
             String answer = "";
-            while (answer.isEmpty()) {
+            System.out.println(answer);
+            while (answer.length() < 2) {
                 answer = this.getMessage();
             }
             if (answer.contains("takepicture")) {
                 String signname = this.handlePictureRequest();
                 if (!this.sendMessage(signname)) {
                     System.out.println("ERROR by sending.....");
-                    System.exit(1);
                 }
             }
         }
     }
 
+    public void work() {
+        while (true) {
+            if (this.client == null) {
+                if (this.picmd.connectToEV3()) {
+                    System.out.println("USB-Connection ok");
+                    this.connect();
+                    System.out.println("Connection ready for use.");
+                } else {
+                    System.out.println("USB-Connection fail");
+                    System.exit(1);
+                }
+            }
+            while (true) {
+                String answer = "";
+                this.connect();
+                answer = this.getMessage();
+                System.out.println(answer);
+                if (answer.contains("takepicture")) {
+                    String signname = this.handlePictureRequest();
+                    if (!this.sendMessage(signname)) {
+                        System.out.println("ERROR by sending.....");
+                    }
+                }
+            }
+
+        }
+    }
+
     public String handlePictureRequest() {
+        System.out.println("handlePictureRequest");
         File picture = new File(this.picmd.getpictureFolder(), "image.jpg");
         for (int i = 0; i <= 5; i++) {
+            System.out.println("try picture : " + i);
             if (this.makePicture(picture)) {
                 break;
             }
@@ -82,7 +119,6 @@ public class TCPConnector extends Thread {
 
     public boolean makePicture(File picture) {
         this.picmd.makeAPicture("image");
-
         if (picture.exists()) {
             return true;
         }
@@ -105,27 +141,23 @@ public class TCPConnector extends Thread {
 
     public String getMessage() {
         String answer = "";
-        while (answer.isEmpty()) {
-            try {
-                answer = this.inputStream.readLine();
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
+        //while (answer.length() < 2) {
+        try {
+            System.out.println("Waitng for Message");
+            answer = this.inputStream.readLine();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
+        //}
         return answer;
     }
 
     public void connect() {
         try {
-            while (this.client == null) {
-                try {
-                    System.out.println("waiting for Client");
-                    this.client = this.tcpServer.accept();
-
-                } catch (IOException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            }
+            System.out.println("waiting for Client");
+            System.out.println("");
+            this.client = this.tcpServer.accept();
+            this.client.setKeepAlive(true);
             System.out.println("open inputstream");
             this.inputStream = new BufferedReader(new InputStreamReader(this.client.getInputStream()));
             System.out.println("open outputstream");

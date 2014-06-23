@@ -26,7 +26,7 @@ public class SignController {
 
 	
 	public void chooseSign() throws RemoteException, InterruptedException {
-		String name = "";
+		String name = null;
 		while(name.isEmpty()){
 			name = this.connect.sendMessage("takepicture");
 		}

@@ -11,6 +11,7 @@ public class CommandRaspberryPi {
     private File pictureFolder;
 
     public void makeAPicture(String name) {
+        System.out.println("making a Picture");
         try {
             String path = System.getProperty("user.dir");
             this.pictureFolder = new File(path, "pictures");
@@ -27,7 +28,7 @@ public class CommandRaspberryPi {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-
+        System.out.println("Picture is ready");
     }
 
     public boolean connectToEV3() {
