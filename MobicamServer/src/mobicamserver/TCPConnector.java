@@ -58,17 +58,21 @@ public class TCPConnector extends Thread {
                     System.exit(1);
                 }
             }
-            String answer = "";
-            System.out.println(answer);
-            while (answer.length() < 2) {
+            while (true) {
+                String answer = null;
                 answer = this.getMessage();
-            }
-            if (answer.contains("takepicture")) {
-                String signname = this.handlePictureRequest();
-                if (!this.sendMessage(signname)) {
-                    System.out.println("ERROR by sending.....");
+                System.out.println(answer);
+                if (answer != null) {
+                    if (answer.contains("takepicture")) {
+                        String signname = this.handlePictureRequest();
+                        if (!this.sendMessage(signname)) {
+                            System.out.println("ERROR by sending.....");
+                        }
+                    }
                 }
+
             }
+
         }
     }
 
@@ -85,16 +89,19 @@ public class TCPConnector extends Thread {
                 }
             }
             while (true) {
-                String answer = "";
-                this.connect();
+                String answer = null;
                 answer = this.getMessage();
-                System.out.println(answer);
-                if (answer.contains("takepicture")) {
-                    String signname = this.handlePictureRequest();
-                    if (!this.sendMessage(signname)) {
-                        System.out.println("ERROR by sending.....");
+
+                if (answer != null) {
+                    System.out.println(answer);
+                    if (answer.contains("takepicture")) {
+                        String signname = this.handlePictureRequest();
+                        if (!this.sendMessage(signname)) {
+                            System.out.println("ERROR by sending.....");
+                        }
                     }
                 }
+
             }
 
         }
@@ -140,15 +147,19 @@ public class TCPConnector extends Thread {
     }
 
     public String getMessage() {
-        String answer = "";
-        //while (answer.length() < 2) {
-        try {
-            System.out.println("Waitng for Message");
-            answer = this.inputStream.readLine();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+        String answer = null;
+        while (answer == null) {
+            try {
+                if (!this.checkConnection()) {
+                    this.connect();
+                }
+                System.out.println("Waitng for Message, bussy");
+                answer = this.inputStream.readLine();
+
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
-        //}
         return answer;
     }
 
@@ -165,6 +176,14 @@ public class TCPConnector extends Thread {
             System.out.println("Streams open");
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
+        }
+    }
+
+    public boolean checkConnection() {
+        if (this.client.isConnected()) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
