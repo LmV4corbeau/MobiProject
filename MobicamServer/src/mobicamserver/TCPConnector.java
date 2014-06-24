@@ -6,10 +6,10 @@
 package mobicamserver;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -22,13 +22,15 @@ public class TCPConnector extends Thread {
     private CommandRaspberryPi picmd;
     private ServerSocket tcpServer;
     private BufferedReader inputStream;
-    private DataOutputStream outputStream;
+    private PrintWriter outputStream;
     private Socket client;
     private SignDetector signDetector;
+    private File userdir;
 
     public TCPConnector() {
         this.picmd = new CommandRaspberryPi();
         this.signDetector = new SignDetector();
+        this.userdir = new File("/home/pi/");
         try {
             System.out.println("opening ServerSocket");
             this.tcpServer = new ServerSocket(6789);
@@ -89,6 +91,7 @@ public class TCPConnector extends Thread {
                 }
             }
             while (true) {
+                System.out.println("wating for Message");
                 String answer = null;
                 answer = this.getMessage();
 
@@ -109,14 +112,16 @@ public class TCPConnector extends Thread {
 
     public String handlePictureRequest() {
         System.out.println("handlePictureRequest");
-        File picture = new File(this.picmd.getpictureFolder(), "image.jpg");
-        for (int i = 0; i <= 5; i++) {
+        File picture = new File("image.jpg");
+        this.makePicture(picture);
+        /**for (int i = 0; i <= 5; i++) {
             System.out.println("try picture : " + i);
             if (this.makePicture(picture)) {
                 break;
             }
         }
-        String signname = this.signDetector.detektTrafficSigne(picture);
+        **/
+        String signname = this.signDetector.detektTrafficSign(picture);
         System.out.println(signname);
         if (signname.contentEquals("new picture please")) {
             return this.handlePictureRequest();
@@ -133,34 +138,32 @@ public class TCPConnector extends Thread {
     }
 
     public boolean sendMessage(String message) {
-        try {
-            this.outputStream.writeBytes(message);
-            this.outputStream.flush();
-            String answer = this.getMessage();
-            if (answer.equalsIgnoreCase("true")) {
-                return true;
-            }
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+        System.out.println(message);
+        this.outputStream.println(message);
+        this.outputStream.flush();
+        String answer = this.getMessage();
+        if (answer.equalsIgnoreCase("true")) {
+            return true;
         }
         return false;
     }
 
     public String getMessage() {
         String answer = null;
-        while (answer == null) {
-            try {
-                if (!this.checkConnection()) {
-                    this.connect();
-                }
-                System.out.println("Waitng for Message, bussy");
-                answer = this.inputStream.readLine();
-
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
+        try {
+            System.out.println("Waitng for Message, bussy");
+            answer = this.inputStream.readLine();
+            if (answer.contains("EV3")) {
+                return answer;
             }
+            if (answer.contains("true")) {
+                return answer;
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+            return "ERROR";
         }
-        return answer;
+        return null;
     }
 
     public void connect() {
@@ -172,7 +175,7 @@ public class TCPConnector extends Thread {
             System.out.println("open inputstream");
             this.inputStream = new BufferedReader(new InputStreamReader(this.client.getInputStream()));
             System.out.println("open outputstream");
-            this.outputStream = new DataOutputStream(this.client.getOutputStream());
+            this.outputStream = new PrintWriter(this.client.getOutputStream(), true);
             System.out.println("Streams open");
         } catch (IOException ex) {
             System.out.println(ex.getMessage());

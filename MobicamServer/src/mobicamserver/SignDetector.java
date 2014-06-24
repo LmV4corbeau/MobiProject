@@ -5,10 +5,7 @@
  */
 package mobicamserver;
 
-import TrafficSign.SignController;
-import TrafficSign.SignForTraffic;
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import TrafficSign.SignController;
@@ -26,8 +23,9 @@ public class SignDetector {
         this.signController = new SignController();
     }
 
-    public String detektTrafficSigne(File picture) {
+    public String detektTrafficSign(File picture) {
     	LinkedList<SignForTraffic> schilderliste = this.signController.getSignList();
+        System.out.println(schilderliste.toString());
     	HashMap<String, Double> schilderWertPaare = new HashMap<>();
     	for(SignForTraffic current : schilderliste){
     		Double currentValue = current.neuralValue(picture);
@@ -39,7 +37,7 @@ public class SignDetector {
 			for (String currentPicture : schilderWertPaare.keySet()) {
 				if(detectedValue < schilderWertPaare.get(currentPicture)) {
 					detectedValue = schilderWertPaare.get(currentPicture);
-					detected = schilderWertPaare.getClass().getSimpleName();
+					detected = currentPicture;
 				} else if(detectedValue == schilderWertPaare.get(currentPicture)){
                                     return"new picture please";
                                 }

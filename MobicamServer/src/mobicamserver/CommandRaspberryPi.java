@@ -13,15 +13,15 @@ public class CommandRaspberryPi {
     public void makeAPicture(String name) {
         System.out.println("making a Picture");
         try {
-            String path = System.getProperty("user.dir");
-            this.pictureFolder = new File(path, "pictures");
-            if (!pictureFolder.exists()) {
-                System.out.println("Folder don't exists");
-                pictureFolder.mkdir();
-            } else {
+            //File path = new File("/home/pi");
+            //this.pictureFolder = new File(path, "pictures");
+            //if (!pictureFolder.exists()) {
+            //    System.out.println("Folder don't exists");
+            //    pictureFolder.mkdir();
+            //} else {
                 System.out.println("Folder exists");
-            }
-            String output = this.runCommand("raspistill -o " + pictureFolder.getAbsolutePath() + "/" + name + ".jpg -w 700 -h 700");
+            //}
+            String output = this.runCommand("raspistill -o " + name + ".jpg -w 700 -h 700");
             System.out.println(output);
         } catch (InterruptedException ex) {
             System.out.println(ex.getMessage());
