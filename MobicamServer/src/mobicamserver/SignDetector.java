@@ -30,9 +30,11 @@ public class SignDetector {
     	for(SignForTraffic current : schilderliste){
     		Double currentValue = current.neuralValue(picture);
     		schilderWertPaare.put(current.getClass().getSimpleName(), currentValue);
+                System.out.println(current+": "+currentValue);
+                System.out.println("");
     	}
     	String detected = null;
-    	double detectedValue = 0.0;
+    	double detectedValue = Double.MIN_VALUE;
     	if (schilderWertPaare != null) {
 			for (String currentPicture : schilderWertPaare.keySet()) {
 				if(detectedValue < schilderWertPaare.get(currentPicture)) {
