@@ -12,6 +12,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,7 +31,6 @@ public class TCPConnector extends Thread {
 
     public TCPConnector() {
         this.picmd = new CommandRaspberryPi();
-        this.signDetector = new SignDetector();
         this.userdir = new File("/home/pi/");
         try {
             System.out.println("opening ServerSocket");
@@ -41,14 +42,23 @@ public class TCPConnector extends Thread {
 
     }
 
+    public void init() {
+        this.signDetector = new SignDetector();
+    }
+
     public static void main(String[] args) {
-        TCPConnector server = new TCPConnector();
-        //server.start();
-        server.work();
+        try {
+            TCPConnector server = new TCPConnector();
+            //server.start();
+            server.work();
+        } catch (InterruptedException ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override
     public void run() {
+        try{
         while (true) {
             if (this.client == null) {
                 if (this.picmd.connectToEV3()) {
@@ -67,6 +77,7 @@ public class TCPConnector extends Thread {
                 if (answer != null) {
                     if (answer.contains("takepicture")) {
                         String signname = this.handlePictureRequest();
+                        System.out.println("Sending Signame: " + signname);
                         if (!this.sendMessage(signname)) {
                             System.out.println("ERROR by sending.....");
                         }
@@ -76,9 +87,13 @@ public class TCPConnector extends Thread {
             }
 
         }
+        }catch(InterruptedException ie){
+            System.out.println(ie);
+        }
     }
 
-    public void work() {
+    public void work() throws InterruptedException {
+        this.init();
         while (true) {
             if (this.client == null) {
                 if (this.picmd.connectToEV3()) {
@@ -90,13 +105,16 @@ public class TCPConnector extends Thread {
                     System.exit(1);
                 }
             }
+            this.sendMessage("go");
             while (true) {
                 System.out.println("wating for Message");
                 String answer = null;
                 answer = this.getMessage();
-
                 if (answer != null) {
                     System.out.println(answer);
+                    if (answer.contains("EV3Error")) {
+                        System.exit(1);
+                    }
                     if (answer.contains("takepicture")) {
                         String signname = this.handlePictureRequest();
                         if (!this.sendMessage(signname)) {
@@ -110,27 +128,31 @@ public class TCPConnector extends Thread {
         }
     }
 
-    public String handlePictureRequest() {
+    public String handlePictureRequest() throws InterruptedException {
         System.out.println("handlePictureRequest");
-        File picture = new File("image.jpg");
-        this.makePicture(picture);
-        /**for (int i = 0; i <= 5; i++) {
-            System.out.println("try picture : " + i);
-            if (this.makePicture(picture)) {
-                break;
+        File picture = new File(this.userdir, "image.jpg");
+        if (this.makePicture(picture)) {
+            String signname = this.signDetector.detektTrafficSign(picture);
+            System.out.println(signname);
+            if (signname.contains("new picture please")) {
+                picture.renameTo(new File(this.userdir, "image.jpg.old"));
+                picture = null;
+                sleep(30000);
+                return this.handlePictureRequest();
             }
+            picture.renameTo(new File(this.userdir, "image.jpg.old"));
+            picture = null;
+            return signname;
+        } else {
+            System.out.println("Error while taking Picture");
+            picture.renameTo(new File(this.userdir, "image.jpg.old"));
+            picture = null;
+            return null;
         }
-        **/
-        String signname = this.signDetector.detektTrafficSign(picture);
-        System.out.println(signname);
-        if (signname.contentEquals("new picture please")) {
-            return this.handlePictureRequest();
-        }
-        return signname;
     }
 
     public boolean makePicture(File picture) {
-        this.picmd.makeAPicture("image");
+        this.picmd.makeAPicture(picture);
         if (picture.exists()) {
             return true;
         }
@@ -141,11 +163,11 @@ public class TCPConnector extends Thread {
         System.out.println(message);
         this.outputStream.println(message);
         this.outputStream.flush();
-        String answer = this.getMessage();
-        if (answer.equalsIgnoreCase("true")) {
-            return true;
-        }
-        return false;
+        //String answer = this.getMessage();
+        //if (answer.equalsIgnoreCase("true")) {
+        //    return true;
+        //}
+        return true;
     }
 
     public String getMessage() {

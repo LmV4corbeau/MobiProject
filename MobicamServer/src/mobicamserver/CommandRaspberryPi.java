@@ -10,25 +10,21 @@ public class CommandRaspberryPi {
 
     private File pictureFolder;
 
-    public void makeAPicture(String name) {
+    public void makeAPicture(File picture) {
         System.out.println("making a Picture");
+        if (picture.exists()) {
+            picture.delete();
+        }
         try {
-            //File path = new File("/home/pi");
-            //this.pictureFolder = new File(path, "pictures");
-            //if (!pictureFolder.exists()) {
-            //    System.out.println("Folder don't exists");
-            //    pictureFolder.mkdir();
-            //} else {
-                System.out.println("Folder exists");
-            //}
-            String output = this.runCommand("raspistill -o " + name + ".jpg -w 700 -h 700");
+
+            String output = this.runCommand("raspistill -o " + picture.getAbsolutePath() + " -w 700 -h 700");
             System.out.println(output);
+            System.out.println("Picture is ready");
         } catch (InterruptedException ex) {
             System.out.println(ex.getMessage());
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        System.out.println("Picture is ready");
     }
 
     public boolean connectToEV3() {

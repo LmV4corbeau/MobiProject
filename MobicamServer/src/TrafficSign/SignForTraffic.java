@@ -10,13 +10,11 @@ import org.neuroph.imgrec.ImageRecognitionPlugin;
 public abstract class SignForTraffic {
 
     private NeuralNetwork nnet;
-    private File network;
 
-    public void init(File network) {
-        this.network = network;
-        System.out.println(this.getClass().getSimpleName()+": load network");
-        this.nnet = NeuralNetwork.load(this.getClass().getSimpleName() + "Network.nnet");
-        System.out.println(this.getClass().getSimpleName()+": network loaded");
+    public void init() {
+        System.out.println(this.getClass().getSimpleName() + ": load network");
+        this.nnet = NeuralNetwork.load("/home/pi/NeurolaNetwork/" + this.getClass().getSimpleName() + "Network.nnet");
+        System.out.println(this.getClass().getSimpleName() + ": network loaded");
     }
 
     public double neuralValue(File picture) {
@@ -26,18 +24,16 @@ public abstract class SignForTraffic {
             output = imageRecognition.recognizeImage(picture);
             System.out.println(this.getClass().getSimpleName());
             System.out.println(output.toString());
-            System.out.println("\n");
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
         double value = 0.0;
         if (output != null) {
             for (String currentPicture : output.keySet()) {
-                value += output.get(currentPicture);
+                value +=output.get(currentPicture);
             }
         }
         return value;
-        //}
     }
 
     public abstract boolean signImage();
