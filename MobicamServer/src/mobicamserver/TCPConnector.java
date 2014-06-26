@@ -137,7 +137,7 @@ public class TCPConnector extends Thread {
             if (signname.contains("new picture please")) {
                 picture.renameTo(new File(this.userdir, "image.jpg.old"));
                 picture = null;
-                sleep(30000);
+                sleep(10000);
                 return this.handlePictureRequest();
             }
             picture.renameTo(new File(this.userdir, "image.jpg.old"));
