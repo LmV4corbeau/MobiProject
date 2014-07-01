@@ -17,7 +17,7 @@ public class CommandRaspberryPi {
         }
         try {
 
-            String output = this.runCommand("raspistill -o " + picture.getAbsolutePath() + " -w 700 -h 700");
+            String output = this.runCommand("raspistill -o " + picture.getAbsolutePath() + " -w 100 -h 100");
             System.out.println(output);
             System.out.println("Picture is ready");
         } catch (InterruptedException ex) {

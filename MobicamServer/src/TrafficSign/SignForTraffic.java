@@ -23,7 +23,7 @@ public abstract class SignForTraffic {
         try {
             output = imageRecognition.recognizeImage(picture);
             System.out.println(this.getClass().getSimpleName());
-            System.out.println(output.toString());
+            //System.out.println(output.toString());
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
