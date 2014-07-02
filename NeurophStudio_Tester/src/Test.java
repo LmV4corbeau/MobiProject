@@ -9,10 +9,12 @@ import org.neuroph.imgrec.ImageRecognitionPlugin;
 public class Test {
 
     public static void main(String[] args) {
-        String[] name = new String[3];
-        name[0] = "SignStopNetworkV5.nnet";
+        String[] name = new String[5];
+        name[0] = "SignStopNetwork.nnet";
         name[1] = "SignStandardSpeedNetworkV5.nnet";
         name[2] = "SignOnlyForwardNetwork.nnet";
+        name[3] ="SignDeadEndNetwork.nnet";
+        name[4] = "SignPlayNetwork.nnet";
 
         for (int i = 0; i < name.length; i++) {
             System.out.println(name[i]);
@@ -54,4 +56,6 @@ public class Test {
         }
         return summe;
     }
+    
+    
 }
