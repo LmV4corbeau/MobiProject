@@ -18,7 +18,7 @@ public class SignController {
         sign.add(new SignStop());
         sign.add(new SignStandardSpeed());
         sign.add(new SignOnlyForward());
-        //sign.add(new SignZone());
+        sign.add(new SignAttention());
         for (SignForTraffic currentSign : sign) {
                 currentSign.init();
         }
