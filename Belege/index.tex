@@ -1,0 +1,66 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}  % deutsche Silbentrennung
+\usepackage[T1]{fontenc}
+%\usepackage[round]{natbib}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{makeidx} % Package zur Indexerstellung
+\usepackage{listings}
+\usepackage{url}
+\parindent 0pt
+\usepackage{rotating}
+
+\usepackage{graphicx} 
+\usepackage{subfigure}
+
+\geometry{outer=25mm , inner=25mm , bottom=25mm , top=25mm }	
+\newcommand{\cmd}[1]{\textbackslash #1}
+\newcommand{\meta}[1]{\textless#1\textgreater}
+\newcommand{\val}[1]{\{\meta{#1}\}}
+\newcommand{\valo}[1]{[\meta{#1}]}
+\newcommand{\incsection}[1]{\include{kapitel/#1}}
+\lstset{
+basicstyle=\footnotesize\ttfamily, % Standardschrift
+         numbers=left,               % Ort der Zeilennummern
+         numberstyle=\tiny,          % Stil der Zeilennummern
+         stepnumber=1,               % Abstand zwischen den Zeilennummern
+         numbersep=5pt,              % Abstand der Nummern zum Text
+         tabsize=2,                  % Groesse von Tabs
+         extendedchars=true,         %
+         breaklines=true,            % Zeilen werden Umgebrochen
+         keywordstyle=\color{red},
+         stringstyle=\color{white}\ttfamily, % Farbe der String
+         showspaces=false,           % Leerzeichen anzeigen ?
+         showtabs=false,             % Tabs anzeigen ?
+         xleftmargin=17pt,
+         framexleftmargin=17pt,
+         framexrightmargin=5pt,
+         framexbottommargin=4pt,
+         %backgroundcolor=\color{lightgray},
+         showstringspaces=false,      % Leerzeichen in Strings anzeigen ? 
+         numberbychapter=true
+}
+
+\begin{document}
+\setlength{\parindent}{0.0cm} % Erstzeilen-Einzug
+\include{title} % Referenzierung des Titelblattes
+\tableofcontents  % Inhaltsverzeichnis anzeigen
+
+\newpage
+\include{selbst}
+%Kapitel in orderner sections als eigene dateien
+\incsection{Einleitung}
+
+%content
+
+\include{quellen}
+
+\include{abbildungen}
+
+\newpage
+ 
+
+
+\end{document}
