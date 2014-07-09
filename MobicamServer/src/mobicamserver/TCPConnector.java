@@ -12,6 +12,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -56,36 +58,36 @@ public class TCPConnector extends Thread {
 
     @Override
     public void run() {
-        try{
-        while (true) {
-            if (this.client == null) {
-                if (this.picmd.connectToEV3()) {
-                    System.out.println("USB-Connection ok");
-                    this.connect();
-                    System.out.println("Connection ready for use.");
-                } else {
-                    System.out.println("USB-Connection fail");
-                    System.exit(1);
-                }
-            }
+        try {
             while (true) {
-                String answer = null;
-                answer = this.getMessage();
-                System.out.println(answer);
-                if (answer != null) {
-                    if (answer.contains("takepicture")) {
-                        String signname = this.handlePictureRequest();
-                        System.out.println("Sending Signame: " + signname);
-                        if (!this.sendMessage(signname)) {
-                            System.out.println("ERROR by sending.....");
-                        }
+                if (this.client == null) {
+                    if (this.picmd.connectToEV3()) {
+                        System.out.println("USB-Connection ok");
+                        this.connect();
+                        System.out.println("Connection ready for use.");
+                    } else {
+                        System.out.println("USB-Connection fail");
+                        System.exit(1);
                     }
                 }
+                while (true) {
+                    String answer = null;
+                    answer = this.getMessage();
+                    System.out.println(answer);
+                    if (answer != null) {
+                        if (answer.contains("takepicture")) {
+                            String signname = this.handlePictureRequest();
+                            System.out.println("Sending Signame: " + signname);
+                            if (!this.sendMessage(signname)) {
+                                System.out.println("ERROR by sending.....");
+                            }
+                        }
+                    }
+
+                }
 
             }
-
-        }
-        }catch(InterruptedException ie){
+        } catch (InterruptedException ie) {
             System.out.println(ie);
         }
     }
@@ -111,7 +113,19 @@ public class TCPConnector extends Thread {
                 if (answer != null) {
                     System.out.println(answer);
                     if (answer.contains("EV3Error")) {
-                        System.exit(1);
+                        System.out.println("EV3 Fehler");
+                        System.out.println("");
+                        System.out.println(answer);
+                        System.out.println("");
+                        System.out.println("Neue Verbindung beginnnt");
+                        try {
+                            this.client.close();
+                            this.client = null;
+                        } catch (IOException ex) {
+                            System.out.println(ex.getMessage());
+                        } finally {
+                            break;
+                        }
                     }
                     if (answer.contains("takepicture")) {
                         String signname = this.handlePictureRequest();
