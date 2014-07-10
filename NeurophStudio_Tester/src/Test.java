@@ -35,6 +35,8 @@ public class Test {
                         .recognizeImage(new File("01SignStandardSpeed.jpg"));
                 HashMap<String, Double> deadend = imageRecognition
                         .recognizeImage(new File("01SignDeadEnd.jpg"));
+                HashMap<String, Double> bullshitBild = imageRecognition
+                        .recognizeImage(new File("bullshitBild.jpg"));
 
                 System.out.println("zone:" + summe(zone));
                 System.out.println("play:" + summe(play));
@@ -42,6 +44,7 @@ public class Test {
                 System.out.println("deadend:" + summe(deadend));
                 System.out.println("standard:" + summe(standard));
                 System.out.println("forward:" + summe(forward));
+                System.out.println("bullshitBild:" + summe(bullshitBild));
                 System.out.println("----------------------------------------------");
                 
             } catch (IOException ioe) {

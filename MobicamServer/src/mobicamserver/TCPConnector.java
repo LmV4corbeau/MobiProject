@@ -55,42 +55,6 @@ public class TCPConnector extends Thread {
         }
     }
 
-    @Override
-    public void run() {
-        while (true) {
-            try {
-                if (this.client == null) {
-                    if (this.picmd.connectToEV3()) {
-                        System.out.println("USB-Connection ok");
-                        this.connect();
-                        System.out.println("Connection ready for use.");
-                    } else {
-                        System.out.println("USB-Connection fail");
-                        System.exit(1);
-                    }
-                }
-                while (true) {
-                    String answer = null;
-                    answer = this.getMessage();
-                    System.out.println(answer);
-                    if (answer != null) {
-                        if (answer.contains("takepicture")) {
-                            String signname = this.handlePictureRequest();
-                            System.out.println("Sending Signame: " + signname);
-                            if (!this.sendMessage(signname)) {
-                                System.out.println("ERROR by sending.....");
-                            }
-                        }
-                    }
-
-                }
-            } catch (InterruptedException ie) {
-                System.out.println(ie);
-            }
-        }
-
-    }
-
     public void work() throws InterruptedException {
         this.init();
         while (true) {
@@ -103,33 +67,35 @@ public class TCPConnector extends Thread {
                     } else {
                         System.out.println("USB-Connection fail");
                     }
-                }
-                this.sendMessage("go");
-                while (true) {
-                    System.out.println("wating for Message");
-                    String answer = null;
-                    answer = this.getMessage();
-                    if (answer != null) {
-                        System.out.println(answer);
-                        if (answer.contains("EV3Error")) {
-                            this.client.close();
-                            this.client = null;
-                            break;
-                        }
-                        if (answer.contains("takepicture")) {
-                            String signname = this.handlePictureRequest();
-                            if (!this.sendMessage(signname)) {
-                                System.out.println("ERROR by sending.....");
+                    this.sendMessage("go");
+                    while (true) {
+                        System.out.println("wating for Message");
+                        String answer = null;
+                        answer = this.getMessage();
+                        if (answer != null) {
+                            System.out.println(answer);
+                            if (answer.contains("EV3Error")) {
+                                System.out.println("EV3 Fehler");
+                                System.out.println("");
+                                System.out.println(answer);
+                                System.out.println("");
+                                System.out.println("Neue Verbindung beginnnt");
+                                try {
+                                    this.client.close();
+                                    this.client = null;
+                                } catch (IOException ex) {
+                                    System.out.println(ex.getMessage());
+                                } finally {
+                                    break;
+                                }
                             }
                         }
                     }
-
                 }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
-
     }
 
     public String handlePictureRequest() throws InterruptedException {
@@ -167,10 +133,6 @@ public class TCPConnector extends Thread {
         System.out.println(message);
         this.outputStream.println(message);
         this.outputStream.flush();
-        //String answer = this.getMessage();
-        //if (answer.equalsIgnoreCase("true")) {
-        //    return true;
-        //}
         return true;
     }
 
