@@ -30,8 +30,12 @@ public class TCPConnector extends Thread {
     private File userdir;
 
     public TCPConnector() {
-        this.picmd = new CommandRaspberryPi();
         this.userdir = new File("/home/pi/");
+    }
+
+    public void init() {
+        this.signDetector = new SignDetector();
+        this.picmd = new CommandRaspberryPi();
         try {
             System.out.println("opening ServerSocket");
             this.tcpServer = new ServerSocket(6789);
@@ -39,11 +43,6 @@ public class TCPConnector extends Thread {
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
         }
-
-    }
-
-    public void init() {
-        this.signDetector = new SignDetector();
     }
 
     public static void main(String[] args) {
