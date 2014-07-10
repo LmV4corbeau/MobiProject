@@ -12,6 +12,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -47,83 +49,87 @@ public class TCPConnector extends Thread {
     public static void main(String[] args) {
         try {
             TCPConnector server = new TCPConnector();
-            //server.start();
             server.work();
         } catch (InterruptedException ex) {
-            System.out.println(ex);
+            System.out.println(ex.getMessage());
         }
     }
 
     @Override
     public void run() {
-        try{
         while (true) {
-            if (this.client == null) {
-                if (this.picmd.connectToEV3()) {
-                    System.out.println("USB-Connection ok");
-                    this.connect();
-                    System.out.println("Connection ready for use.");
-                } else {
-                    System.out.println("USB-Connection fail");
-                    System.exit(1);
-                }
-            }
-            while (true) {
-                String answer = null;
-                answer = this.getMessage();
-                System.out.println(answer);
-                if (answer != null) {
-                    if (answer.contains("takepicture")) {
-                        String signname = this.handlePictureRequest();
-                        System.out.println("Sending Signame: " + signname);
-                        if (!this.sendMessage(signname)) {
-                            System.out.println("ERROR by sending.....");
-                        }
+            try {
+                if (this.client == null) {
+                    if (this.picmd.connectToEV3()) {
+                        System.out.println("USB-Connection ok");
+                        this.connect();
+                        System.out.println("Connection ready for use.");
+                    } else {
+                        System.out.println("USB-Connection fail");
+                        System.exit(1);
                     }
                 }
+                while (true) {
+                    String answer = null;
+                    answer = this.getMessage();
+                    System.out.println(answer);
+                    if (answer != null) {
+                        if (answer.contains("takepicture")) {
+                            String signname = this.handlePictureRequest();
+                            System.out.println("Sending Signame: " + signname);
+                            if (!this.sendMessage(signname)) {
+                                System.out.println("ERROR by sending.....");
+                            }
+                        }
+                    }
 
+                }
+            } catch (InterruptedException ie) {
+                System.out.println(ie);
             }
+        }
 
-        }
-        }catch(InterruptedException ie){
-            System.out.println(ie);
-        }
     }
 
     public void work() throws InterruptedException {
         this.init();
         while (true) {
-            if (this.client == null) {
-                if (this.picmd.connectToEV3()) {
-                    System.out.println("USB-Connection ok");
-                    this.connect();
-                    System.out.println("Connection ready for use.");
-                } else {
-                    System.out.println("USB-Connection fail");
-                    System.exit(1);
-                }
-            }
-            this.sendMessage("go");
-            while (true) {
-                System.out.println("wating for Message");
-                String answer = null;
-                answer = this.getMessage();
-                if (answer != null) {
-                    System.out.println(answer);
-                    if (answer.contains("EV3Error")) {
-                        System.exit(1);
+            try {
+                if (this.client == null) {
+                    if (this.picmd.connectToEV3()) {
+                        System.out.println("USB-Connection ok");
+                        this.connect();
+                        System.out.println("Connection ready for use.");
+                    } else {
+                        System.out.println("USB-Connection fail");
                     }
-                    if (answer.contains("takepicture")) {
-                        String signname = this.handlePictureRequest();
-                        if (!this.sendMessage(signname)) {
-                            System.out.println("ERROR by sending.....");
+                }
+                this.sendMessage("go");
+                while (true) {
+                    System.out.println("wating for Message");
+                    String answer = null;
+                    answer = this.getMessage();
+                    if (answer != null) {
+                        System.out.println(answer);
+                        if (answer.contains("EV3Error")) {
+                            this.client.close();
+                            this.client = null;
+                            break;
+                        }
+                        if (answer.contains("takepicture")) {
+                            String signname = this.handlePictureRequest();
+                            if (!this.sendMessage(signname)) {
+                                System.out.println("ERROR by sending.....");
+                            }
                         }
                     }
+
                 }
-
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
-
         }
+
     }
 
     public String handlePictureRequest() throws InterruptedException {

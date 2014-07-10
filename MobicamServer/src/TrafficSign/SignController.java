@@ -14,10 +14,9 @@ public class SignController {
     public SignController() {
         this.sign = new LinkedList<>();
         sign.add(new SignDeadEnd());
-        sign.add(new SignPlay());
         sign.add(new SignStop());
         sign.add(new SignStandardSpeed());
-        sign.add(new SignOnlyForward());
+        //sign.add(new SignOnlyForward());
         sign.add(new SignAttention());
         for (SignForTraffic currentSign : sign) {
                 currentSign.init();

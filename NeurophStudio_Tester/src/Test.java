@@ -11,15 +11,15 @@ public class Test {
     public static void main(String[] args) {
         String[] name = new String[5];
         name[0] = "SignStopNetwork.nnet";
-        name[1] = "SignStandardSpeedNetworkV5.nnet";
+        name[1] = "SignStandardSpeedNetwork.nnet";
         name[2] = "SignOnlyForwardNetwork.nnet";
         name[3] ="SignDeadEndNetwork.nnet";
         name[4] = "SignPlayNetwork.nnet";
-
-        for (int i = 0; i < name.length; i++) {
-            System.out.println(name[i]);
+        String[][] data = new String[5][5];
+        for (String name1 : name) {
+            System.out.println(name1);
             System.out.println("----------------------------------------------");
-            NeuralNetwork nnet = NeuralNetwork.load(name[i]);
+            NeuralNetwork nnet = NeuralNetwork.load(name1);
             ImageRecognitionPlugin imageRecognition = (ImageRecognitionPlugin) nnet
                     .getPlugin(ImageRecognitionPlugin.class);
             try {
@@ -43,6 +43,7 @@ public class Test {
                 System.out.println("standard:" + summe(standard));
                 System.out.println("forward:" + summe(forward));
                 System.out.println("----------------------------------------------");
+                
             } catch (IOException ioe) {
                 ioe.printStackTrace();
             }
@@ -57,5 +58,13 @@ public class Test {
         return summe;
     }
     
+    public void output(String[][] data, int zeilen, int spalten){
+        for(int i = 0; i < zeilen; i++){
+            for(int j = 0; j < spalten; j++){
+                System.out.print("\t"+data[i][j]);
+            }
+            System.out.println("");
+        }
+    }
     
 }

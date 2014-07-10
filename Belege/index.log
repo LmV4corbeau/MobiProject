@@ -1,21 +1,14 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.10.28)  7 JAN 2014 12:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.7)  9 JUL 2014 15:11
 entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
 **index.tex
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\index.tex
+(./index.tex
 LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
- lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
-ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
-an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
-ishmax, welsh, loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Babel <3.9h> and hyphenation patterns for 78 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size11.clo"
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,19 +23,19 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
 \inpenc@posthook=\toks15
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\utf8.def"
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -192,7 +185,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -223,7 +216,7 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -247,58 +240,53 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
-Package: babel 2008/07/08 v3.8m The Babel package
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2013/12/03 3.9h The Babel package
 
-*************************************
-* Local config file bblopts.cfg used
-*
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
-File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\ngermanb.ldf"
-Language: ngermanb 2008/07/06 v2.6n new German support from the babel system
+(/usr/share/texlive/texmf-dist/tex/generic/babel-german/ngermanb.ldf
+Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2008/07/08 v3.8m Babel common definitions
+(/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2013/12/03 3.9h Babel common definitions
 \babel@savecnt=\count87
 \U@D=\dimen103
 )
 \l@naustrian = a dialect from \language\l@ngerman 
-Package babel Info: Making " an active character on input line 92.
+\l@nswissgerman = a dialect from \language\l@ngerman 
+Package babel Info: Making " an active character on input line 88.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1enc.def"
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks16
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count88
@@ -306,18 +294,18 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count89
@@ -332,12 +320,11 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layouthoffset=\dimen112
 \Gm@layoutvoffset=\dimen113
 \Gm@dimlist=\toks17
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\makeidx.sty"
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty
 Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count92
 \lst@gtempboxa=\box26
 \lst@token=\toks18
@@ -351,25 +338,25 @@ Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 \lst@lineno=\count97
 \lst@maxwidth=\dimen117
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 \c@lstnumber=\count98
 \lst@skipnumbers=\count99
 \lst@framebox=\box27
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2013/08/26 1.5b listings configuration
 ))
 Package: listings 2013/08/26 1.5b (Carsten Heinz)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
-Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\rotating\rotating.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/rotating/rotating.sty
 Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \c@r@tfl@t=\count100
@@ -378,8 +365,8 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 \rot@float@box=\box28
 \rot@mess@toks=\toks19
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty"
-Package: subfigure 2002/07/30 v2.1.4 subfigure package
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfigtopskip=\skip45
 \subfigcapskip=\skip46
 \subfigcaptopadj=\dimen118
@@ -394,16 +381,13 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
-("C:\Program Files\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg")
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip49
 \subfig@bottom=\skip50
-)
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\index.aux
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\title.aux)
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\selbst.aux)
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\kapitel/Einleitung.aux)
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\quellen.aux)
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\abbildungen.aux))
+) (./index.aux (./title.aux) (./selbst.aux) (./kapitel/Einleitung.aux)
+(./kapitel/Kommunikation.aux) (./quellen.aux) (./abbildungen.aux))
+\openout1 = `index.aux'.
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
 LaTeX Font Info:    ... okay on input line 46.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
@@ -417,7 +401,7 @@ LaTeX Font Info:    ... okay on input line 46.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
 LaTeX Font Info:    ... okay on input line 46.
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count105
 \scratchdimen=\dimen120
@@ -430,7 +414,50 @@ LaTeX Font Info:    ... okay on input line 46.
 \MPnumerator=\count109
 \makeMPintoPDFobject=\count110
 \everyMPtoPDFconversion=\toks21
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -466,7 +493,9 @@ LaTeX Font Info:    ... okay on input line 46.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count111
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\title.tex
+\openout2 = `title.aux'.
+
+(./title.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 7.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -483,55 +512,67 @@ ut line 8.
 (pdftex.def)             Requested size: 113.81102pt x 32.51788pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 40.
- [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
- <D:/Documents/Fachhochschule/LatexTemplates/Belege/images/hochschule_zittau_go
-erlitz_logo.png>])
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\index.toc)
+ <./images/hochschule_zittau_goerlitz_logo.png>])
+(./index.toc)
 \tf@toc=\write3
+\openout3 = `index.toc'.
+
  [1
 
 ]
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\selbst.tex) [2
+\openout2 = `selbst.aux'.
+
+ (./selbst.tex) [2
 
 ]
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\kapitel/Einleitung.tex)
-[3
+\openout2 = `kapitel/Einleitung.aux'.
 
-
-] (D:\Documents\Fachhochschule\LatexTemplates\Belege\quellen.tex) [4
-
-
-]
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\abbildungen.tex) [5
+ (./kapitel/Einleitung.tex) [3
 
 
 ]
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\index.aux
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\title.aux)
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\selbst.aux)
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\kapitel/Einleitung.aux)
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\quellen.aux)
-(D:\Documents\Fachhochschule\LatexTemplates\Belege\abbildungen.aux)) ) 
+\openout2 = `kapitel/Kommunikation.aux'.
+
+
+(./kapitel/Kommunikation.tex) [4
+
+
+]
+\openout2 = `quellen.aux'.
+
+ (./quellen.tex) [5
+
+
+]
+\openout2 = `abbildungen.aux'.
+
+ (./abbildungen.tex)
+[6
+
+
+] (./index.aux (./title.aux) (./selbst.aux) (./kapitel/Einleitung.aux)
+(./kapitel/Kommunikation.aux) (./quellen.aux) (./abbildungen.aux)) ) 
 Here is how much of TeX's memory you used:
- 4149 strings out of 493921
- 56210 string characters out of 3147287
- 117342 words of memory out of 3000000
- 7360 multiletter control sequences out of 15000+200000
- 11923 words of font info for 32 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 27i,12n,32p,238b,392s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\User
-s\Tom\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> 
-<C:\Users\Tom\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1
-440.pk> <C:\Users\Tom\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
-00\ecrm1200.pk> <C:\Users\Tom\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen
-\ec\dpi600\ecrm2074.pk> <C:\Users\Tom\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
-jknappen\ec\dpi600\ecrm1095.pk>
-Output written on index.pdf (6 pages, 70438 bytes).
+ 4579 strings out of 493304
+ 61974 string characters out of 6139872
+ 133389 words of memory out of 5000000
+ 7923 multiletter control sequences out of 15000+600000
+ 11923 words of font info for 32 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 38i,12n,32p,238b,392s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share
+/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/p
+ublic/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1
+440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/
+texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/pu
+blic/cm-super/sfrm2074.pfb>
+Output written on index.pdf (7 pages, 106228 bytes).
 PDF statistics:
- 222 PDF objects out of 1000 (max. 8388607)
+ 51 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
