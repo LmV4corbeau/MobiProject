@@ -88,6 +88,12 @@ public class TCPConnector extends Thread {
                                     break;
                                 }
                             }
+                            if (answer.contains("takepicture")) {
+                                String signname = this.handlePictureRequest();
+                                if (!this.sendMessage(signname)) {
+                                    System.out.println("ERROR by sending.....");
+                                }
+                            }
                         }
                     }
                 }
