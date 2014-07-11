@@ -1,4 +1,4 @@
 MobiProject
 ===========
 
-Build a better c# Robo
+Roboter, der Autonom duruch ein Straßen Layrint fahren kann.
