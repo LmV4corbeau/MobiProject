@@ -18,25 +18,6 @@ public class Calibrate {
 	 * @param args
 	 */
 	
-
-	/*public void Calibrate(int calout, int calin) {
-		while (!Button.ESCAPE.isDown()) {
-			LCD.drawString("Test", 0, 0);
-			LCD.drawInt(this.outColorSensor.getColorID(), 0, 1);
-			LCD.drawInt(this.inColorSensor.getColorID(), 0, 2);
-			if (Button.ENTER.isDown()) {
-
-				calout = this.outColorSensor.getColorID();
-				calin = this.inColorSensor.getColorID();
-				LCD.drawInt(calout, 0, 3);
-				LCD.drawInt(calin, 0, 4);
-
-			}
-		}
-	}*/
-	
-	
-
 	public int getoutColor() {
 		return this.outColorSensor.getColorID();
 		

@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/commons-cli.jar"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/commons-cli-src.zip"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/dbusjava.jar"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/dbusjava-src.zip"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/ev3classes.jar"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/ev3classes-src.zip"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/ev3tools.jar"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/ev3tools-src.zip"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/jcommon.jar"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/jcommon-src.zip"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/jfreechart.jar"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/jfreechart-src.zip"/>
-	<classpathentry kind="lib" path="/home/corbeau/Dokumente/Fachhochschule/4.Mobile Roboter/MobiProject/roboter/lib/jsch-0.1.50.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="H:/Beleg/MobiProject/lejos/leJOS_EV3_0.8.1-beta/lib/ev3/dbusjava.jar"/>
+	<classpathentry kind="lib" path="H:/Beleg/MobiProject/lejos/leJOS_EV3_0.8.1-beta/lib/ev3/ev3classes.jar" sourcepath="H:/Beleg/MobiProject/lejos/leJOS_EV3_0.8.1-beta/lib/ev3/ev3classes-src.zip">
+		<attributes>
+			<attribute name="source_encoding" value="UTF-8"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="H:/Beleg/MobiProject/lejos/leJOS_EV3_0.8.1-beta/lib/pc/ev3tools.jar" sourcepath="H:/Beleg/MobiProject/lejos/leJOS_EV3_0.8.1-beta/lib/pc/ev3tools-src.zip">
+		<attributes>
+			<attribute name="source_encoding" value="UTF-8"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="H:/Beleg/MobiProject/lejos/leJOS_EV3_0.8.1-beta/lib/pc/3rdparty/commons-cli.jar"/>
+	<classpathentry kind="lib" path="H:/Beleg/MobiProject/lejos/leJOS_EV3_0.8.1-beta/lib/pc/3rdparty/jcommon.jar"/>
+	<classpathentry kind="lib" path="H:/Beleg/MobiProject/lejos/leJOS_EV3_0.8.1-beta/lib/pc/3rdparty/jfreechart.jar"/>
+	<classpathentry kind="lib" path="H:/Beleg/MobiProject/lejos/leJOS_EV3_0.8.1-beta/lib/pc/3rdparty/jsch-0.1.50.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
