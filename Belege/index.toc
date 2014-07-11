@@ -1,6 +1,11 @@
 \select@language {ngerman}
 \contentsline {section}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{2}
 \contentsline {section}{\numberline {1}Einleitung}{3}
-\contentsline {section}{\numberline {2}Kommunikation zwischen Raspberry Pi und Lego EV3}{4}
-\contentsline {section}{Quellenverzeichnis}{5}
-\contentsline {section}{Abbildungen}{6}
+\contentsline {section}{\numberline {2}Kommunikation zwischen Raspberry Pi und Lego EV3}{3}
+\contentsline {subsection}{\numberline {2.1}Umsetzung}{3}
+\contentsline {section}{\numberline {3}Bedienungsanleitung}{3}
+\contentsline {subsection}{\numberline {3.1}Ben\IeC {\"o}tigte Hardware}{3}
+\contentsline {subsection}{\numberline {3.2}Vorbereitung}{3}
+\contentsline {subsection}{\numberline {3.3}Bedienung}{3}
+\contentsline {section}{Quellenverzeichnis}{4}
+\contentsline {section}{Abbildungen}{5}

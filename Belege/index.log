@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.7)  9 JUL 2014 15:11
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.7)  10 JUL 2014 15:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -384,8 +384,8 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 (/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip49
 \subfig@bottom=\skip50
-) (./index.aux (./title.aux) (./selbst.aux) (./kapitel/Einleitung.aux)
-(./kapitel/Kommunikation.aux) (./quellen.aux) (./abbildungen.aux))
+) (./index.aux (./title.aux) (./selbst.aux) (./quellen.aux) (./abbildungen.aux)
+)
 \openout1 = `index.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
@@ -527,52 +527,62 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  (./selbst.tex) [2
 
-]
-\openout2 = `kapitel/Einleitung.aux'.
+] (./kapitel/Einleitung.tex)
+(./kapitel/Kommunikation.tex
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 4.
 
- (./kapitel/Einleitung.tex) [3
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+))
+(./kapitel/Bedienungsanleitung.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 5.
 
-
-]
-\openout2 = `kapitel/Kommunikation.aux'.
-
-
-(./kapitel/Kommunikation.tex) [4
-
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 14.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 14.
+) [3
 
 ]
 \openout2 = `quellen.aux'.
 
- (./quellen.tex) [5
-
+ (./quellen.tex)
+[4
 
 ]
 \openout2 = `abbildungen.aux'.
 
- (./abbildungen.tex)
-[6
+ (./abbildungen.tex) [5
 
 
-] (./index.aux (./title.aux) (./selbst.aux) (./kapitel/Einleitung.aux)
-(./kapitel/Kommunikation.aux) (./quellen.aux) (./abbildungen.aux)) ) 
+] (./index.aux (./title.aux) (./selbst.aux)
+(./quellen.aux) (./abbildungen.aux)) ) 
 Here is how much of TeX's memory you used:
- 4579 strings out of 493304
- 61974 string characters out of 6139872
- 133389 words of memory out of 5000000
- 7923 multiletter control sequences out of 15000+600000
- 11923 words of font info for 32 fonts, out of 8000000 for 9000
+ 4880 strings out of 493304
+ 64795 string characters out of 6139872
+ 135703 words of memory out of 5000000
+ 8215 multiletter control sequences out of 15000+600000
+ 16219 words of font info for 40 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,12n,32p,238b,392s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share
-/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/p
-ublic/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1
-440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/
-texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/pu
-blic/cm-super/sfrm2074.pfb>
-Output written on index.pdf (7 pages, 106228 bytes).
+ 38i,12n,32p,826b,1030s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-supe
+r/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/sh
+are/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type
+1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
+rm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/sha
+re/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1
+/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfr
+m2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt0900.pfb>
+Output written on index.pdf (6 pages, 182278 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+ 66 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
